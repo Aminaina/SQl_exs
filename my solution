@@ -1,0 +1,64 @@
+SELECT region.name AS rname, sales_reps.name AS srname, accounts.name AS aname
+FROM region
+JOIN sales_reps
+ON region.id = sales_reps.region_id
+JOIN accounts
+ON sales_reps.id = accounts.sales_rep_id
+where  region.name = 'Midwest'
+order by accounts.name ;
+SELECT region.name AS rname, sales_reps.name AS srname, accounts.name AS aname
+FROM region
+JOIN sales_reps
+ON region.id = sales_reps.region_id
+JOIN accounts
+ON sales_reps.id = accounts.sales_rep_id
+where region.name = 'Midwest' and sales_reps.name LIKE 'S%'
+order by accounts.name ;
+SELECT region.name AS rname, sales_reps.name AS srname, accounts.name AS aname
+FROM region
+JOIN sales_reps
+ON region.id =  sales_reps.region_id
+JOIN accounts
+ON sales_reps.id = accounts.sales_rep_id
+where region.name = 'Midwest' and sales_reps.name LIKE '% K%' 
+order by accounts.name ;
+ SELECT region.name, accounts.name,   orders.total_amt_usd/(orders.total + 0.01) as unit_price
+FROM region
+JOIN sales_reps
+ON region.id = sales_reps.region_id
+JOIN accounts
+ON sales_reps.id = accounts.sales_rep_id
+ JOIN orders
+ ON accounts.id = orders.account_id
+ WHERE standard_amt_usd  > 100 ;
+  SELECT region.name, accounts.name,  orders.total_amt_usd/(orders.total + 0.01) as unit_price
+FROM region
+JOIN sales_reps
+ON region.id = sales_reps.region_id
+JOIN accounts
+ON sales_reps.id = accounts.sales_rep_id
+ JOIN orders
+ ON accounts.id = orders.account_id
+ WHERE standard_amt_usd  > 100  and poster_amt_usd > 50   
+ ORDER BY   unit_price;
+ SELECT region.name, accounts.name,  orders.total_amt_usd/(orders.total + 0.01) as unit_price
+FROM region
+JOIN sales_reps
+ON region.id = sales_reps.region_id
+JOIN accounts
+ON sales_reps.id = accounts.sales_rep_id
+ JOIN orders
+ ON accounts.id = orders.account_id
+ WHERE standard_amt_usd  > 100  and poster_amt_usd > 50   
+ ORDER BY unit_price desc;       
+SELECT DISTINCT  accounts.name, web_events.channel 
+FROM accounts
+JOIN web_events
+ON  accounts.id = web_events.account_id
+ WHERE web_events.account_id = 1001 ;
+SELECT orders.occurred_at, accounts.name, orders.total,  orders.total_amt_usd
+FROM orders
+ JOIN accounts
+ ON  orders.account_id =  accounts.id     
+ where orders.occurred_at BETWEEN '01-01-2015' AND '01-01-2016'
+ORDER BY orders.occurred_at DESC; 
