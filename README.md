@@ -19,11 +19,11 @@ This repository contains  SQL exercises that cover:
 - Window functions and analytics
 - Performance optimization techniques
 - Real-world business scenarios
+- ...
 
 ## 🛠 Database Setup
 
-All exercises use a sample employee database. Run the setup script to create the necessary tables and data.
-
+Eacg exercise use a sample  database you can find with exersise . 
 
 ## 📚 Exercises
 
