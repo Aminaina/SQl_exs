@@ -1,4 +1,4 @@
--- same database of previous exercise 
+-- same database of multi level grouping exercise 
 /*Exercise  1: Basic HAVING Clause
 
 Find all departments that have more than 2 employees.
